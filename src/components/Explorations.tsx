@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 
 const explorations = [
@@ -16,35 +18,31 @@ export const Explorations: React.FC = () => {
   const columnsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    import('gsap').then((gsapModule) => {
-      const gsap = gsapModule.default;
-      const ScrollTrigger = gsapModule.ScrollTrigger;
-      gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-      // Pin the center content
-      if (contentRef.current) {
-        ScrollTrigger.create({
+    // Pin the center content
+    if (contentRef.current) {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: '+=300vh',
+        pin: contentRef.current,
+        pinSpacing: false,
+      });
+    }
+
+    // Parallax effect for columns
+    if (columnsRef.current) {
+      gsap.to(columnsRef.current, {
+        y: -100,
+        scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=300vh',
-          pin: contentRef.current,
-          pinSpacing: false,
-        });
-      }
-
-      // Parallax effect for columns
-      if (columnsRef.current) {
-        gsap.to(columnsRef.current, {
-          y: -100,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: true,
-          },
-        });
-      }
-    });
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      });
+    }
   }, []);
 
   return (
