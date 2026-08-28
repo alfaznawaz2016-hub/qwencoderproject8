@@ -27,16 +27,18 @@ export const Footer: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const gsap = require('gsap');
+    import('gsap').then((gsapModule) => {
+      const gsap = gsapModule.default;
 
-    if (marqueeRef.current) {
-      gsap.to(marqueeRef.current, {
-        xPercent: -50,
-        duration: 40,
-        ease: "none",
-        repeat: -1,
-      });
-    }
+      if (marqueeRef.current) {
+        gsap.to(marqueeRef.current, {
+          xPercent: -50,
+          duration: 40,
+          ease: "none",
+          repeat: -1,
+        });
+      }
+    });
   }, []);
 
   const socialLinks = [

@@ -49,32 +49,34 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
   // GSAP entrance animation
   useEffect(() => {
-    const gsap = require('gsap');
-    
-    const tl = gsap.timeline({ ease: "power3.out" });
-    
-    tl.to(nameRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      delay: 0.1,
-    })
-    .to(eyebrowRef.current, {
-      opacity: 1,
-      filter: "blur(0px)",
-      y: 0,
-      duration: 1,
-      stagger: 0.1,
-      delay: 0.3,
-    }, "-=0.8");
+    import('gsap').then((gsapModule) => {
+      const gsap = gsapModule.default;
 
-    // Set initial states
-    if (nameRef.current) {
-      gsap.set(nameRef.current, { opacity: 0, y: 50 });
-    }
-    if (eyebrowRef.current) {
-      gsap.set(eyebrowRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
-    }
+      const tl = gsap.timeline({ ease: "power3.out" });
+
+      tl.to(nameRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        delay: 0.1,
+      })
+      .to(eyebrowRef.current, {
+        opacity: 1,
+        filter: "blur(0px)",
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        delay: 0.3,
+      }, "-=0.8");
+
+      // Set initial states
+      if (nameRef.current) {
+        gsap.set(nameRef.current, { opacity: 0, y: 50 });
+      }
+      if (eyebrowRef.current) {
+        gsap.set(eyebrowRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
+      }
+    });
   }, []);
 
   return (
@@ -131,8 +133,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
         {/* Description */}
         <p className="text-sm md:text-base text-muted max-w-md mx-auto mb-12">
-          Aspiring Diploma Graduate with a focus on real-world data projects and 
-          vibecoded web applications. Designing seamless digital interactions by 
+          Aspiring Diploma Graduate with a focus on real-world data projects and
+          vibecoded web applications. Designing seamless digital interactions by
           focusing on the unique nuances which bring systems to life.
         </p>
 
