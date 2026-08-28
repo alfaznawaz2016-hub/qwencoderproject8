@@ -7,6 +7,11 @@ dist/
 build/
 target/
 
+# Environment variables
+.env
+.env.local
+*.env.*
+
 # Python
 __pycache__/
 *.pyc
@@ -16,23 +21,61 @@ __pycache__/
 env/
 venv/
 .venv/
-.ENV
-.ENV.*
-.env
-.env.*
-.pytest_cache/
-.mypy_cache/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
 .coverage
-coverage/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git*
+!/.gitignore
+!.gitmodules
+*.sublime-workspace
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Compiled and binary files
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+*.pyc
+*.pyo
+*.pyd
+*.class
+*.jar
+*.war
+*.ear
+*.hprof
+*.pyc
+*.pyo
+*.pyd
 
 # Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Environment specific
-.env
-.env.local
-.env.*
-!.env.example
+# Coverage
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+.cache
 
 # IDE
 .vscode/
@@ -40,6 +83,10 @@ coverage/
 *.swp
 *.swo
 *~
+
+# OS
+.DS_Store
+Thumbs.db
 
 # OS
 .DS_Store
@@ -64,17 +111,39 @@ Thumbs.db
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 
-# Coverage
-coverage/
-htmlcov/
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
-# Compiled
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
+# PyTest
+.pytest_cache/
+
+# Vite
+!.vite/
+vite/dist
+vite/.vite
+
+# TypeScript
+*.tsbuildinfo
+*.tsx
+*.jsx
+
+# PostCSS
+postcss.config.js
+
+# Tailwind
+tailwind.config.js
+
+# Package lock files
+package-lock.json
+
+# TS Config
+tsconfig.json
+tsconfig.node.json
 ```
