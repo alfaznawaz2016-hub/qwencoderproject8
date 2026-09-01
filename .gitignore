@@ -7,20 +7,10 @@ dist/
 build/
 target/
 
-# Logs
-*.log
-
 # Environment variables
 .env
 .env.local
 *.env.*
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
 
 # Python cache
 __pycache__/
@@ -28,10 +18,49 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
+
 # Coverage reports
 coverage/
 htmlcov/
 .coverage
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+.next/
+.nuxt/
+
+# Vite
+.vite/
+
+# PostCSS
+.postcss-cache/
+
+# MyPy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
 
 # Compression files
 *.zip
